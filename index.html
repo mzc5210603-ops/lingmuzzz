@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>长明文库 · 公版小说阅读所</title>
+  <meta name="description" content="公版小说文库：真实文本节选、全文检索、进度记忆、沉浸阅读器。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="wrap">
+
+    <!-- 刊头 -->
+    <header class="masthead">
+      <div class="brand">
+        <h1>长明文库</h1>
+        <p>CHANGMING LIBRARY · 公版小说阅读所 · 卷廿三</p>
+      </div>
+      <nav class="topnav" id="topnav">
+        <button class="tn active" data-v="home">文库</button>
+        <button class="tn" data-v="shelf">我的书架</button>
+      </nav>
+    </header>
+
+    <!-- 检索条 -->
+    <div class="search-bar">
+      <input id="q" placeholder="检索全书库：人物、句子、回目……" />
+      <button id="qGo">检 索</button>
+    </div>
+
+    <main>
+
+      <!-- ═══ 视图：文库 ═══ -->
+      <section class="view" id="view-home">
+        <div class="shelf-label">
+          <b>馆藏</b><span id="libStat">—</span>
+        </div>
+        <div class="filter-bar" id="filterBar"></div>
+        <ul class="books" id="bookGrid"></ul>
+      </section>
+
+      <!-- ═══ 视图：扉页+目录 ═══ -->
+      <section class="view" id="view-book" hidden>
+        <button class="back" id="bBack">← 回文库</button>
+        <div class="title-page" id="titlePage"></div>
+        <div class="toc">
+          <h3>目 录</h3>
+          <ol id="tocList"></ol>
+        </div>
+      </section>
+
+      <!-- ═══ 视图：阅读器 ═══ -->
+      <section class="view" id="view-read" hidden>
+        <div class="reader-bar">
+          <button class="back" id="rBack">← 回目录</button>
+          <div class="r-tools">
+            <button id="fontMinus" title="缩小字号">A−</button>
+            <button id="fontPlus" title="放大字号">A＋</button>
+            <button id="lineToggle" title="切换行距">☰</button>
+            <button id="themeToggle" title="纸面 / 夜读">◐</button>
+            <button id="markToggle" title="本章加入书签">✩ 书签</button>
+          </div>
+        </div>
+        <article class="reader" id="reader">
+          <h2 id="rChTitle"></h2>
+          <p class="r-byline" id="rByline"></p>
+          <div class="r-body" id="rBody"></div>
+          <div class="r-nav">
+            <button id="prevCh">上一章</button>
+            <span id="rPos">—</span>
+            <button id="nextCh">下一章</button>
+          </div>
+        </article>
+      </section>
+
+      <!-- ═══ 视图：检索结果 ═══ -->
+      <section class="view" id="view-search" hidden>
+        <button class="back" id="sBack">← 回文库</button>
+        <div class="search-head">
+          <h3>检索结果</h3>
+          <p id="sStat">—</p>
+        </div>
+        <ul class="hits" id="sHits"></ul>
+      </section>
+
+      <!-- ═══ 视图：书架 ═══ -->
+      <section class="view" id="view-shelf" hidden>
+        <div class="shelf-label"><b>最近在读</b></div>
+        <ul class="books slim" id="recentList"></ul>
+        <div class="shelf-label"><b>书签章节</b></div>
+        <ul class="marks" id="markList"></ul>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
